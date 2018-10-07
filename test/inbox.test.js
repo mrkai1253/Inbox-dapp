@@ -8,46 +8,10 @@ const Web3 = require('web3');
 const web3 = new Web3(ganache.provider());
 const {interface , bytecode} = require('../compile');
 
-
-// We are using mocha test framework
- 
-/*
- class Car{
- 	park (){
- 		return 'stopped';
- 	}
-
- 	drive(){
- 		return 'vroom';
- 	}
- }
-let car;
-beforeEach(() =>{
- 	// it will run everytime before it statement
- 	// some initialisation before test
- 	car = new Car();
- 	// now car variable is not available to it(Local scope)
- 	
- });
-
-describe('Car', ()=>{
-	it('park_func',() =>{
-		//test and assertion logic here
-		// const car = new Car();
-		assert.equal(car.park(), 'stopped');
-	});
-	it('drive',() =>{
-		// const car = new Car;
-		assert.equal(car.drive(), 'vroom');
-	})
-});
-// To run mocha go to package.json and mocha to test
-*/
 let accounts;
 let inbox;
 beforeEach(async () =>{
 	// Get a list of all accounts
-
 	accounts = await web3.eth.getAccounts();
 	// Use one of those accounts to deploy the contract
 	inbox = await new web3.eth.Contract(JSON.parse(interface))
